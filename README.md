@@ -1,3 +1,9 @@
+# Rock Paper Scissors
+
+This is a super simple game to be played on the client (on a single pc) with two players. While each player is taking their turn, the other player must not look at the screen. 
+
+Given a bit more time, I would have loved to implement a backend that provides true online multiplayer. I also would have loved to spend a bit more time on the UI/UX design. Lastly, a really cool concept that I thought about was allowing more than just 2 players to play, and creating a type of rock paper scissors "tournament" to find the true champion!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
