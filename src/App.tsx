@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Ending from "./components/Ending";
+import Gaming from "./components/Gaming";
+import Landing from "./components/Landing";
+import { PlayerNumber, PlayState } from "./components/types";
 
 function App() {
+  const [playState, setPlayState] = useState<PlayState>("Start");
+  const [winner, setWinner] = useState<PlayerNumber | null>(null);
+
+  const startPlay = () => {
+    setPlayState("Play");
+  };
+
+  const endPlay = (winner: PlayerNumber | null) => {
+    setWinner(winner);
+    setPlayState("End");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="w-full h-full flex justify-center items-center">
+      {playState === "Start" && <Landing onPlay={startPlay} />}
+      {playState === "Play" && <Gaming onEnd={endPlay} />}
+      {playState === "End" && <Ending winner={winner} onPlay={startPlay} />}
     </div>
   );
 }
